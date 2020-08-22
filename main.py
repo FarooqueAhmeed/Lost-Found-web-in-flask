@@ -122,7 +122,7 @@ def register():
         else:
             # Account doesnt exists and the form data is valid, now insert new account into accounts table
             cursor.execute("INSERT INTO users (user_id,first_name,last_name,father_name,age,mobile,email,user_password,gender,country,province,city)"
-                           "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+                           "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
                            (None,first_name,last_name,father_name,age,mobile,email,user_password,gender,country,province,city))
             session['user_id'] = cursor.lastrowid
             mysql.connection.commit()
@@ -315,14 +315,79 @@ def delete():
         mysql.connection.commit()
         return redirect(url_for('register'))
 
+@app.route('/view/<foundlost_id>' , methods=['POST', 'GET'])
+def view(foundlost_id):
 
+    ''' Why this mess when foundlost_id available in function right here ---- def view(foundlost_id):
+    listOfGlobals = globals()
+    listOfGlobals['foundlost_id'] = foundlost_id
+    '''
+
+    cursor = mysql.connection.cursor()
+
+    user_id = session['user_id']
+    ''' Why globals, Why?? No need of it.
+    global Aready_claimed_or_on_product
+    global msg    
+    '''
+
+    msg = 'You can claim it !'
+    already_claimed = False
+    posted_by_you = False
+    #Aready_claimed_or_on_product = True  , Renamed the var to simpler one
+    cursor.execute('SELECT * FROM claims WHERE user_id = %s AND foundlost_id = %s',(user_id,foundlost_id))  ## Good
+    check = cursor.fetchone()
+
+
+    if check != None:
+       already_claimed = True
+       msg = 'Product is already claimed by you'
+    else:
+        cursor.execute('SELECT * FROM foundlost WHERE foundlost_id = %s AND user_id = %s', (foundlost_id, user_id)) # Good
+        check = cursor.fetchone()
+        if check != None:
+            posted_by_you = True
+            msg = 'You can not claim product posted by you.'
+
+
+    #user_id = session['user_id'] No need
+    #cursor.execute('SELECT * FROM foundlost WHERE foundlost_id = %s AND user_id = %s', (foundlost_id, user_id))
+    #check_entry = cursor.fetchone()
+
+    '''
+    elif check_entry != None:
+         Aready_claimed_or_on_product = False
+         msg = 'This is your entry'
+    '''
+
+
+    cursor.execute(f'SELECT * FROM foundlost WHERE foundlost_id = {foundlost_id}')
+    data = cursor.fetchone()
+
+    cursor.execute("select comments.comment_value, users.first_name FROM comments natural join users WHERE foundlost_id = %s",[foundlost_id])
+    comments_data = cursor.fetchall()
+
+    cursor.execute('SELECT count(*) FROM claims WHERE foundlost_id = %s', (foundlost_id))
+    claim_count = cursor.fetchone()
+
+    cursor.execute("SELECT users.first_name, users.last_name, users.email from claims JOIN  users on claims.user_id = users.user_id where claims.foundlost_id = %s", (foundlost_id));
+    claimed_by = cursor.fetchall()
+
+
+
+    return render_template('view.html', data=data, comments_data=comments_data,
+                           msg=msg, already_claimed=already_claimed, posted_by_you = posted_by_you,
+                           claim_count=claim_count[0],
+                           claimed_by = claimed_by)
+    #return  render_template ('view.html',data=data,comments_data=comments_data,msg=msg,Aready_claimed_or_on_product=Aready_claimed_or_on_product)
+
+
+'''
 @app.route('/view/<foundlost_id>' , methods=['POST', 'GET'])
 def view(foundlost_id):
     listOfGlobals = globals()
     listOfGlobals['foundlost_id'] = foundlost_id
     cursor = mysql.connection.cursor()
-
-
 
     user_id = session['user_id']
     global Aready_claimed_or_on_product
@@ -349,7 +414,7 @@ def view(foundlost_id):
     cursor.execute("select comments.comment_value, users.first_name FROM comments natural join users WHERE foundlost_id = %s",[foundlost_id])
     comments_data = cursor.fetchall()
     return  render_template ('view.html',data=data,comments_data=comments_data,msg=msg,Aready_claimed_or_on_product=Aready_claimed_or_on_product)
-
+'''
 @app.route('/View_Update_Entry/<foundlost_id>' , methods=['get'])
 def View_Update_Entry(foundlost_id):
     cursor = mysql.connection.cursor()
@@ -402,16 +467,28 @@ def comment():
 @app.route('/claims/claim', methods=['GET', 'POST'])
 def claim():
     cursor = mysql.connection.cursor()
+    print(request.url)
+    lost_found_id = request.args.get('foundlost_id')
 
-    cursor.execute('SELECT * FROM claims WHERE foundlost_id = %s', [foundlost_id])
+    already_claimed = False
+    posted_by_you = False
+    cursor.execute('SELECT * FROM claims WHERE user_id = %s AND foundlost_id = %s', (session['user_id'], lost_found_id))  ## Good
+    ##cursor.execute('SELECT * FROM claims WHERE foundlost_id = %s', [lost_found_id])  In-complete Query, 2nd condition missing
     check = cursor.fetchone()
-    if check != None:
-        msg='already claimed'
-    elif check==None:
 
+    if check != None: ##
+        already_claimed = True
+    else:
+        cursor.execute('SELECT * FROM foundlost WHERE foundlost_id = %s AND user_id = %s',  (foundlost_id, session['user_id']))  # Good
+        check = cursor.fetchone()
+        if check != None:
+            posted_by_you = True
 
+    if posted_by_you == False and already_claimed == False:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('INSERT INTO claims (user_id,foundlost_id) select user_id,foundlost_id from foundlost WHERE foundlost_id = %s',[foundlost_id])
+        # Kiye likha hhhhhhhhhh????????#Kiye likha hhhhhhhhhh????????#Kiye likha hhhhhhhhhh????????#Kiye likha hhhhhhhhhh????????
+        #cursor.execute('INSERT INTO claims (user_id,foundlost_id) select user_id,foundlost_id from foundlost WHERE foundlost_id = %s',[foundlost_id]) #Kiye likha hhhhhhhhhh????????
+        cursor.execute('INSERT INTO claims (user_id,foundlost_id) values (%s, %s)', (session['user_id'], lost_found_id))
         mysql.connection.commit()
         return render_template('home.html')
     else:
