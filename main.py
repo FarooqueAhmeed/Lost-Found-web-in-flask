@@ -81,6 +81,8 @@ def register():
         province = request.form['province']
         city = request.form['city']
 
+
+        '''
         # check if the post request has the file part
         if 'file' not in request.files:
             flash('No file part')
@@ -98,6 +100,7 @@ def register():
                 return base64.b64encode(file.read()).decode('utf-8')
 
             print("Save file")
+        '''
 
 
 
@@ -118,7 +121,9 @@ def register():
 
         else:
             # Account doesnt exists and the form data is valid, now insert new account into accounts table
-            cursor.execute("INSERT INTO users VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(None,first_name,last_name,father_name,age,mobile,email,user_password,gender,country,province,city, file))
+            cursor.execute("INSERT INTO users (user_id,first_name,last_name,father_name,age,mobile,email,user_password,gender,country,province,city)"
+                           "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+                           (None,first_name,last_name,father_name,age,mobile,email,user_password,gender,country,province,city))
             session['user_id'] = cursor.lastrowid
             mysql.connection.commit()
             msg = 'You have successfully registered!'
