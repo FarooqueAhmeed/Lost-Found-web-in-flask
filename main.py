@@ -369,7 +369,7 @@ def view(foundlost_id):
 
     cursor.execute('SELECT count(*) FROM claims WHERE foundlost_id = %s', (foundlost_id))
     claim_count = cursor.fetchone()
-
+    ##SELECT users.first_name, users.last_name, users.email from claims JOIN users on claims.user_id = users.user_id where claims.foundlost_id = 2;
     cursor.execute("SELECT users.first_name, users.last_name, users.email from claims JOIN  users on claims.user_id = users.user_id where claims.foundlost_id = %s", (foundlost_id));
     claimed_by = cursor.fetchall()
 
