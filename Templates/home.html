@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block title %}Find{% endblock %}
+
+{% block content %}
+
+
+
+<p>{{msg}}</p>
+
+<h2>Home Page</h2>
+<p>Welcome back, {{ first_name }}!</p>
+
+
+    {% for row in foundlost %}
+<div class="container" style="margin-bottom: 3rem;">
+   <div class="card text-center">
+        <div class="card-header">{{row.6}} </div>
+  <div class="card-header">
+     {% if row.1 %}
+                             <div>Found</div>
+                        {% else %}
+                            <div>Lost</div>
+                         {% endif %}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{row.2}}</h5>
+
+       <p class="card-text">{{row.4}} .</p>
+      <a href="/view/{{row.0}}" method="get" class="btn btn-primary">View</a>
+  </div>
+  <div class="card-footer text-muted">
+    {{row.3}}
+  </div>
+</div>
+</div>
+
+
+                {% endfor  %}
+
+
+
+
+
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,130 @@
+{% extends 'layout.html' %}
+
+{% block title %}Find{% endblock %}
+
+{% block content %}
+
+
+
+
+
+
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Hit Claim
+</button>
+
+
+<form action="{{ url_for('claim') }}" method="post">
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Claim details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+<textarea class="form-control" id="message-text" name="claim_detail" required></textarea>
+
+
+          </div>
+<button type="submit" class="btn btn-primary">Send claim</button>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</form>
+
+
+<h1>{{msg}} </h1>
+
+
+
+
+
+<div class="container" style="margin-bottom: 3rem;">
+   <div class="card text-center">
+
+  <div class="card-header">
+     {% if data.1==1 %}
+                             <div>Found</div>
+                        {% else %}
+                            <div>Lost</div>
+                         {% endif %}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{data.2}}</h5>
+    <p class="card-text">{{data.5}}.</p>
+       <p class="card-text">{{data.4}} .</p>
+
+      <form action="{{ url_for('claim') }}"  method="get">
+ {% if Aready_claimed_or_on_product==False %}
+ <button type="submit" class="btn btn-primary" disabled >Send claim</button>
+ {% else %}
+          <button type="submit" class="btn btn-primary">Send claim</button>
+      {% endif %}
+
+</form>
+
+
+
+
+  </div>
+  <div class="card-footer text-muted">
+    {{data.3}}
+  </div>
+</div>
+</div>
+
+
+
+
+<form action="{{ url_for('comment') }}" method="post">
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Comment</span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea" name="comment_value" id="comment_value" required></textarea>
+      <div style="padding-left: 3px; padding-top: 10px;">
+
+
+          <input type="submit" class="btn btn-primary " disabled>
+
+      </div>
+</div>
+</form>
+
+
+
+{% for comments_data in comments_data %}
+
+
+
+<div>
+<b>   {{comments_data.1}} : </b>
+
+    {{comments_data.0}}
+
+</div>
+
+
+
+{%  endfor  %}
+
+
+{% endblock %}
+
+
+

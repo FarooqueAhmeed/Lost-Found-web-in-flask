@@ -1,0 +1,135 @@
+{% extends 'layout.html' %}
+
+{% block title %}Entry{% endblock %}
+
+{% block content %}
+<h2>Show Entry Page</h2>
+
+<div class="tab" style="
+    padding-left: 100px;
+    padding-right: 100px;">
+
+<form action="{{ url_for('ShowEntry') }}" method="get" >
+
+   {% for data in data %}
+
+
+
+
+<div class="container" style="margin-bottom: 3rem;">
+   <div class="card text-center">
+  <div class="card-header">
+     {% if data.1 %}
+                             <div>Found</div>
+                        {% else %}
+                            <div>Lost</div>
+                         {% endif %}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{data.2}}</h5>
+    <p class="card-text">{{data.5}}.</p>
+       <p class="card-text">{{data.4}} .</p>
+       <p class="card-text"> {{data.3}} .</p>
+  </div>
+
+  <div class="card-footer text-muted">
+
+
+      <a href="{{ url_for('delete') }}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure For Delete?')"><i class="fas fa-delete"></i>Delete</a>
+     <button  class="btn btn-outline-danger" type="button" data-toggle="modal" data-target="#exampleModal" >
+      <i class="fas fa-edit"></i> Edit</button>
+
+  </div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+    <div class="modal_class">
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+<form action="{{ url_for('update_Entry') }}" method="post" autocomplete="off">
+
+          <input type="hidden" value="{{data['foundlost_id'] }}" name="foundlost_id" >
+
+          <div class="form-group">
+              <div class="radio">
+                 <input type="radio" name="foundOrLost"  value="found" checked >
+                      <span> Found </span>
+                </div>
+                     <div class="radio">
+                       <input type="radio" name="foundOrLost" value="lost"  >
+                           <span> Lost</span>
+                     </div>
+             </div>
+
+          <input type="text" class="form-control" value="{{data.2}}" name="title" placeholder="Title*" required>
+
+          <input type="text" class="form-control" value="{{data['last_name'] }}" name="last_name" placeholder="last_name" required>
+
+          <input type="text" class="form-control" value="{{data['father_name'] }}" name="father_name" placeholder="father_name" required>
+
+
+          <input type="text" class="form-control" value="{{data['age'] }}" name="age" placeholder="age" required>
+
+
+<button type="submit" class="btn btn-primary" value="Save">Save changes</button>
+
+ </form>
+      </div>
+      <div class="modal-footer">
+
+
+
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+                {% endfor  %}
+
+
+
+
+
+  </tbody>
+</table>
+
+</form>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
+
+

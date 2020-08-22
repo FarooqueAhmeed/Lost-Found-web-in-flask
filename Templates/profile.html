@@ -1,0 +1,168 @@
+{% extends 'layout.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<h2>Profile Page</h2>
+
+<div>
+    <p>Your account details are below:</p>
+    <table>
+
+        <tr>
+            <td>First name:</td>
+            <td>{{data['first_name'] }}</td>
+
+        </tr>
+
+        <tr>
+            <td>Last name:</td>
+            <td>{{data['last_name'] }}</td>
+        </tr>
+
+        <tr>
+            <td>Father name:</td>
+            <td>{{data['father_name'] }}</td>
+        </tr>
+
+
+
+        <tr>
+            <td>Age:</td>
+            <td>{{data['age'] }}</td>
+        </tr>
+
+        <tr>
+            <td>Mobile Number:</td>
+            <td>{{ data['mobile'] }}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{ data['email'] }}</td>
+        </tr>
+         <tr>
+            <td>Password:</td>
+            <td>{{ data['user_password'] }}</td>
+        </tr>
+
+         <tr>
+            <td>Gender:</td>
+             <td>
+              {% if data.gender==1 %}
+                             <div>Male</div>
+              {% else %}
+                            <div>Female</div>
+              {% endif %}
+             </td>
+        </tr>
+
+
+         <tr>
+            <td>Country:</td>
+            <td>{{data['country'] }}</td>
+        </tr>
+
+        <tr>
+            <td>Province:</td>
+            <td>{{data['province'] }}</td>
+        </tr>
+
+        <tr>
+            <td>City:</td>
+            <td>{{data['city'] }}</td>
+        </tr>
+
+
+    </table>
+</div>
+
+
+ <a href="{{ url_for('delete') }}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure For Delete?')"><i class="fas fa-delete"></i>Delete Account</a>
+
+     <button  class="btn btn-outline-danger" type="button" data-toggle="modal" data-target="#exampleModal" >
+ <i class="fas fa-edit"></i>Edit</button>
+
+
+
+
+
+<div class="modal_class">
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+<form action="{{ url_for('update') }}" method="post" autocomplete="off">
+
+    <input type="hidden" value="{{data['id'] }}" name="id" >
+
+          <input type="text" class="form-control" value="{{data['first_name'] }}" name="first_name" placeholder="First Name" required>
+
+          <input type="text" class="form-control" value="{{data['last_name'] }}" name="last_name" placeholder="last_name" required>
+
+          <input type="text" class="form-control" value="{{data['father_name'] }}" name="father_name" placeholder="father_name" required>
+
+
+          <input type="text" class="form-control" value="{{data['age'] }}" name="age" placeholder="age" required>
+
+          <input type="text" class="form-control" value="{{data['mobile'] }}" name="mobile" placeholder="mobile" required>
+
+          <input type="text" class="form-control" value="{{data['email'] }}" name="email" placeholder="email" required>
+
+          <input type="password" class="form-control" value="{{data['user_password'] }}" name="user_password" placeholder="user_password" required>
+
+
+
+                                         <div class="form-group">
+                                            <div class="radio">
+                                             <input type="radio" name="gender"  value="male" checked >
+                                                <span> Male </span>
+                                             </div>
+                                           <div class="radio">
+                                            <input type="radio" name="gender" id="gender" value="female"  >
+                                                <span> Female</span>
+                                            </div>
+                                         </div>
+
+
+           <input type="text" class="form-control" value="{{data['country'] }}" name="country" placeholder="country" required>
+
+          <input type="text" class="form-control" value="{{data['province'] }}" name="province" placeholder="province" required>
+
+          <input type="text" class="form-control" value="{{data['city'] }}" name="city" placeholder="city" required>
+
+
+
+
+<button type="submit" class="btn btn-primary" value="Save">Save changes</button>
+
+ </form>
+      </div>
+      <div class="modal-footer">
+
+
+
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+

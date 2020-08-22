@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block title %}Find{% endblock %}
+
+{% block content %}
+
+
+
+
+
+
+<div class="container" style="margin-bottom: 3rem;">
+   <div class="card text-center">
+  <div class="card-header">
+     {% if data.1==1 %}
+                             <div>Found</div>
+                        {% else %}
+                            <div>Lost</div>
+                         {% endif %}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{data.2}} </h5>
+    <p class="card-text">{{data.5}}.</p>
+       <p class="card-text">{{data.4}} .</p>
+      <a href="#" class="btn btn-primary">Hit Claim</a>
+  </div>
+  <div class="card-footer text-muted">
+    {{data.3}}
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Comment</span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea"></textarea>
+      <div style="padding-left: 3px; padding-top: 10px;">
+    <a href="#" class="btn btn-primary">Add thought</a>
+      </div>
+</div>
+
+
+
+
+{% endblock %}
+
+
+

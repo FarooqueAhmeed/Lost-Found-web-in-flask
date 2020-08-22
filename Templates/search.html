@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block title %}Find{% endblock %}
+
+{% block content %}
+
+
+
+
+
+<h2>Home Page</h2>
+<p>Searched data!</p>
+
+
+
+    {% for data in data %}
+
+
+
+
+<div class="card-group">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Title :{{data.title}}</h5>
+      <p class="card-text" >
+                        {% if data.foundOrLost==1 %}
+                             <div>Category: Found</div>
+                        {% else %}
+                            <div>Category: Lost</div>
+                         {% endif %}
+        <div>Address : {{data.address}}  </div>
+
+        </a></p>
+      <p id="prize"> Other Details : {{data.otherDetails}}
+        </p>
+
+    <a href="#" class="btn btn-primary">Claim</a>
+    </div>
+  </div>
+</div>
+
+
+                {% endfor  %}
+
+
+
+
+{% endblock %}
+
+
+

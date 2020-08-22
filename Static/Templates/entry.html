@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" >
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+
+
+ <!-- links for countries-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//geodata.solutions/includes/countrystatecity.js"></script>
+
+
+
+
+
+<style>
+
+
+<!-- Join -->
+
+.register{
+    background:linear-gradient(left, #3931af, #00c6ff);
+    margin-top: 3%;
+    padding: 3%;
+}
+.register-left{
+    text-align: center;
+    color: #1a356f;
+    margin-top: 4%;
+}
+.register-left input{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+.register-right{
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+}
+.register-left img{
+    margin-top: 15%;
+    margin-bottom: 5%;
+    width: 25%;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+.register-left p{
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+}
+.register .register-form{
+    padding: 10%;
+    margin-top: 10%;
+}
+.btnRegister{
+    float: right;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+.register .nav-tabs{
+    margin-top: 3%;
+    border: none;
+    background: #0062cc;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: right;
+}
+.register .nav-tabs .nav-link{
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: #fff;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+    border: none;
+}
+.register .nav-tabs .nav-link.active{
+    width: 100px;
+    color: #0062cc;
+    border: 2px solid #0062cc;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+.register-heading{
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #495057;
+}
+
+
+
+
+</style>
+</head>
+<body>
+
+
+ <!-- login start -->
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container register">
+
+
+
+                    <div class="col-md-9 register-right">
+
+
+
+
+                      <!-- REGISTER FORM -->
+
+<form action="{{ url_for('entry') }}" method="post">
+
+                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab" >
+                                <h3  class="register-heading">Submit Your Entry</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+
+                                        <input type="hidden" name="foundlost_id" value="foundlost_id"/>
+
+
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="title" placeholder="Object name*" id="first_name" required>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                           <input type="text" class="form-control"  name="address" placeholder="Where*" required>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                             <input type="text" class="form-control" name="otherDetails" placeholder="Complete Description*" >
+                                        </div>
+
+
+                                        <div class="form-group">
+                                           <input type="date"  name="whenLostOrFound" placeholder="dd-mm-yyyy" min="1997-01-01" max="2030-12-31" required>
+                                        </div>
+
+
+
+
+                                        <h6>Do you have Found or Lost?</h6>
+
+
+                                          <div class="form-group">
+                                            <div class="radio">
+                                                <input type="radio" name="foundOrLost" checked value="found"/>
+                                             <span>  Found </span>
+                                            </div>
+
+                                            <div class="radio">
+                                                <input type="radio" name="foundOrLost" value="lost"/>
+                                                <span> Lost</span>
+                                            </div>
+                                         </div>
+
+
+                                        <input type="submit" class="btnRegister"  value="Submit"/>
+                                        <span>{{ msg }}</span>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+         </form>
+
+                  <!--Register form end </form>-->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//geodata.solutions/includes/countrystatecity.js"></script>
+
+</body>
+</html>
+
+
+<!--
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css">
+
+
+
+
+
+
+	</head>
+	<body >
+
+
+
+
+    <div class="container">
+
+        <form class="well form-horizontal" id="contact_form" action="{{ url_for('entry') }}" method="post">
+            <fieldset>
+<input type="hidden" name="foundlost_id" value="foundlost_id"/> Found
+
+                <legend>Fill Information About Object</legend>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Do you have Found or Lost?</label>
+                    <div class="col-md-4">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="foundOrLost" value="found"/> Found
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="foundOrLost" value="lost"/> Lost
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Object Name </label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="title" placeholder="Object Name" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Date</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input type="date" name="whenLostOrFound" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Address</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input name="address" placeholder="Where" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+
+
+      <div class="form-group">
+                    <label class="col-md-4 control-label">Other Details</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                            <textarea class="form-control" name="otherDetails" placeholder="Complete Description"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success" role="alert" id="success_message">
+                    {{ msg }}
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-warning">Send <span
+                                class="glyphicon glyphicon-send"></span></button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+<link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet"/>
+
+	</body>
+</html>
+-->
