@@ -17,7 +17,7 @@ app.secret_key = 'sECRET###!!#%$%#'
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = '127.0.0.1'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '1234'
+app.config['MYSQL_PASSWORD'] = 'yaKhudaKhair'
 app.config['MYSQL_DB'] = 'found'
 from werkzeug.utils import secure_filename
 
