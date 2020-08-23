@@ -326,7 +326,10 @@ def view(foundlost_id):
     user_id = session['user_id']
     ''' Why globals, Why?? No need of it.
     global Aready_claimed_or_on_product
-    global msg    
+    global msg 
+     Why globals, Why?? No need of it.
+    global Aready_claimed_or_on_product
+    global msg     
     '''
 
     msg = 'You can claim it !'

@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="473915ed-d575-4e04-b073-008ce0da2fc7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="473915ed-d575-4e04-b073-008ce0da2fc7" name="Default Changelist" comment="simple errors solved" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -226,8 +221,16 @@
       <workItem from="1598071601750" duration="7618000" />
       <workItem from="1598091484342" duration="2712000" />
       <workItem from="1598103557371" duration="6744000" />
-      <workItem from="1598150631541" duration="3433000" />
+      <workItem from="1598150631541" duration="3746000" />
     </task>
+    <task id="LOCAL-00001" summary="simple errors solved">
+      <created>1598154451425</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1598154451425</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,6 +246,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="simple errors solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="simple errors solved" />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597383595448">
