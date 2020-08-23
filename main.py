@@ -17,7 +17,7 @@ app.secret_key = 'sECRET###!!#%$%#'
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = '127.0.0.1'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'yaKhudaKhair'
+app.config['MYSQL_PASSWORD'] = '1234'
 app.config['MYSQL_DB'] = 'found'
 from werkzeug.utils import secure_filename
 
@@ -318,10 +318,8 @@ def delete():
 @app.route('/view/<foundlost_id>' , methods=['POST', 'GET'])
 def view(foundlost_id):
 
-    ''' Why this mess when foundlost_id available in function right here ---- def view(foundlost_id):
     listOfGlobals = globals()
     listOfGlobals['foundlost_id'] = foundlost_id
-    '''
 
     cursor = mysql.connection.cursor()
 
@@ -423,9 +421,6 @@ def View_Update_Entry(foundlost_id):
     return redirect(url_for('ShowEntry'))
 
 
-
-
-
 @app.route('/users/update_Entry', methods=['POST', 'GET'])
 def update_Entry():
     foundOrLost = request.form['foundOrLost']
@@ -446,9 +441,6 @@ def update_Entry():
     flash("Data Updated Successfully")
     mysql.connection.commit()
     return redirect(url_for('ShowEntry'))
-
-
-
 
 
 @app.route('/comments/comment', methods=['GET', 'POST'])

@@ -89,7 +89,7 @@
                 <div class="card card-body">
                     <ul class="list-group list-group-horizontal">
                         {% for claim in claimed_by %}
-                        <li class="list-group-item">{{claim[1]}} , {{claim[2]}}</li>
+                        <li class="list-group-item">{{claim[0]}} , {{claim[2]}}</li>
                         {% endfor %}
 
                     </ul>
@@ -111,7 +111,7 @@
         <div style="padding-left: 3px; padding-top: 10px;">
 
 
-            <input type="submit" class="btn btn-primary " disabled>
+            <input type="submit" class="btn btn-primary ">
 
         </div>
     </div>
