@@ -3,6 +3,12 @@
 {% block title %}Profile{% endblock %}
 
 {% block content %}
+<style>
+    .avatar_img {
+        width: 30%;
+        height: 30%;
+    }
+</style>
 <h2>Profile Page</h2>
 
 <div>
@@ -70,6 +76,16 @@
         <tr>
             <td>City:</td>
             <td>{{data['city'] }}</td>
+        </tr>
+
+        <tr>
+            <td>Avatar:</td>
+            <td>
+                {% if data['avatar'] != None%}
+                <img class="avatar_img" src="data:image/png;base64,{{ data['avatar'] | safe }}">
+                {% endif %}
+
+            </td>
         </tr>
 
 

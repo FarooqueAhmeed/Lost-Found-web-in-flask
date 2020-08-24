@@ -17,7 +17,8 @@ app.secret_key = 'sECRET###!!#%$%#'
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = '127.0.0.1'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '1234'
+#app.config['MYSQL_PASSWORD'] = '1234'
+app.config['MYSQL_PASSWORD'] = 'yaKhudaKhair'
 app.config['MYSQL_DB'] = 'found'
 from werkzeug.utils import secure_filename
 
@@ -81,28 +82,15 @@ def register():
         province = request.form['province']
         city = request.form['city']
 
-
-        '''
-        # check if the post request has the file part
-        if 'file' not in request.files:
+        if 'avatar_file' not in request.files:
             flash('No file part')
-            return redirect(url_for('register'))
-        file = request.files['file']
-        # if user does not select file, browser also
-        # submit an empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(url_for('register'))
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            with open(file.filename, "rb") as file:
-                return base64.b64encode(file.read()).decode('utf-8')
-
-            print("Save file")
-        '''
-
-
+            return redirect(request.url)
+        avatar_img = request.files['avatar_file']
+        if avatar_img.filename == '':
+            flash('No image selected for uploading')
+            return redirect(request.url)
+        if avatar_img and allowed_file(avatar_img.filename):
+            filename = secure_filename(avatar_img.filename)
 
         # Check if account exists using MySQL
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -120,10 +108,12 @@ def register():
             msg = 'Please fill out the form!....'
 
         else:
+            ### Create field in databse named "avatar" as LONGBLOB
+
             # Account doesnt exists and the form data is valid, now insert new account into accounts table
-            cursor.execute("INSERT INTO users (user_id,first_name,last_name,father_name,age,mobile,email,user_password,gender,country,province,city)"
-                           "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
-                           (None,first_name,last_name,father_name,age,mobile,email,user_password,gender,country,province,city))
+            cursor.execute("INSERT INTO users (user_id,first_name,last_name,father_name,age,mobile,email,user_password,gender,country,province,city,avatar)"
+                           "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+                           (None,first_name,last_name,father_name,age,mobile,email,user_password,gender,country,province,city,avatar_img.read()))
             session['user_id'] = cursor.lastrowid
             mysql.connection.commit()
             msg = 'You have successfully registered!'
@@ -244,6 +234,9 @@ def profile():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM users WHERE user_id = %s ', (session['user_id'],))
         data = cursor.fetchone()
+        if data['avatar'] != None:
+            data['avatar'] = base64.b64encode(data['avatar']).decode("utf-8")
+
         return render_template('profile.html', data=data)
 
 
