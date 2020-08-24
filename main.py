@@ -324,13 +324,7 @@ def view(foundlost_id):
     cursor = mysql.connection.cursor()
 
     user_id = session['user_id']
-    ''' Why globals, Why?? No need of it.
-    global Aready_claimed_or_on_product
-    global msg 
-     Why globals, Why?? No need of it.
-    global Aready_claimed_or_on_product
-    global msg     
-    '''
+
 
     msg = 'You can claim it !'
     already_claimed = False

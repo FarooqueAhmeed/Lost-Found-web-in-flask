@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="473915ed-d575-4e04-b073-008ce0da2fc7" name="Default Changelist" comment="simple errors solved" />
+    <list default="true" id="473915ed-d575-4e04-b073-008ce0da2fc7" name="Default Changelist" comment="simple errors solved">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -221,7 +223,8 @@
       <workItem from="1598071601750" duration="7618000" />
       <workItem from="1598091484342" duration="2712000" />
       <workItem from="1598103557371" duration="6744000" />
-      <workItem from="1598150631541" duration="3746000" />
+      <workItem from="1598150631541" duration="3957000" />
+      <workItem from="1598158460895" duration="1184000" />
     </task>
     <task id="LOCAL-00001" summary="simple errors solved">
       <created>1598154451425</created>
@@ -230,7 +233,35 @@
       <option name="project" value="LOCAL" />
       <updated>1598154451425</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="simple errors solved">
+      <created>1598154539434</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1598154539434</updated>
+    </task>
+    <task id="LOCAL-00003" summary="simple errors solved">
+      <created>1598154575067</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1598154575067</updated>
+    </task>
+    <task id="LOCAL-00004" summary="simple errors solved">
+      <created>1598154594039</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1598154594039</updated>
+    </task>
+    <task id="LOCAL-00005" summary="simple errors solved">
+      <created>1598154654814</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1598154654814</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,6 +277,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="simple errors solved" />
@@ -276,22 +308,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="472" y="69" key="Github.UntrackedFilesDialog/0.0.1366.728@0.0.1366.728" timestamp="1598110699701" />
-    <state width="1323" height="180" key="GridCell.Tab.0.bottom" timestamp="1598112130474">
+    <state width="1323" height="132" key="GridCell.Tab.0.bottom" timestamp="1598154672601">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="180" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1598112130474" />
-    <state width="1323" height="180" key="GridCell.Tab.0.center" timestamp="1598112130474">
+    <state width="1323" height="132" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1598154672601" />
+    <state width="1323" height="132" key="GridCell.Tab.0.center" timestamp="1598154672601">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="180" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1598112130474" />
-    <state width="1323" height="180" key="GridCell.Tab.0.left" timestamp="1598112130474">
+    <state width="1323" height="132" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1598154672601" />
+    <state width="1323" height="132" key="GridCell.Tab.0.left" timestamp="1598154672601">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="180" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1598112130474" />
-    <state width="1323" height="180" key="GridCell.Tab.0.right" timestamp="1598112130474">
+    <state width="1323" height="132" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1598154672601" />
+    <state width="1323" height="132" key="GridCell.Tab.0.right" timestamp="1598154672601">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="180" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1598112130474" />
+    <state width="1323" height="132" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1598154672601" />
     <state width="1323" height="180" key="GridCell.Tab.1.bottom" timestamp="1598112130474">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
