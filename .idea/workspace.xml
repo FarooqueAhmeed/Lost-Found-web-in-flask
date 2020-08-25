@@ -21,6 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="473915ed-d575-4e04-b073-008ce0da2fc7" name="Default Changelist" comment="simple errors solved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/Join.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/Join.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/ShowEntry.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/ShowEntry.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,6 +228,9 @@
       <workItem from="1598103557371" duration="6744000" />
       <workItem from="1598150631541" duration="3957000" />
       <workItem from="1598158460895" duration="1184000" />
+      <workItem from="1598251129097" duration="485000" />
+      <workItem from="1598269071841" duration="129000" />
+      <workItem from="1598321108420" duration="3217000" />
     </task>
     <task id="LOCAL-00001" summary="simple errors solved">
       <created>1598154451425</created>
@@ -261,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598154654814</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="simple errors solved">
+      <created>1598251273258</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1598251273258</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,10 +305,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="276" y="80" width="869" height="648" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1597731134487" />
-    <state width="891" height="466" key="DebuggerActiveHint" timestamp="1598060154201">
+    <state width="968" height="466" key="DebuggerActiveHint" timestamp="1598322438360">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="891" height="466" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1598060154201" />
+    <state width="968" height="466" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1598322438360" />
     <state x="462" y="119" key="FileChooserDialogImpl" timestamp="1598110484143">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -308,56 +321,69 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="472" y="69" key="Github.UntrackedFilesDialog/0.0.1366.728@0.0.1366.728" timestamp="1598110699701" />
-    <state width="1323" height="132" key="GridCell.Tab.0.bottom" timestamp="1598154672601">
+    <state width="1323" height="169" key="GridCell.Tab.0.bottom" timestamp="1598323911814">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="132" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1598154672601" />
-    <state width="1323" height="132" key="GridCell.Tab.0.center" timestamp="1598154672601">
+    <state width="1323" height="169" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1598323911814" />
+    <state width="1323" height="169" key="GridCell.Tab.0.center" timestamp="1598323911814">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="132" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1598154672601" />
-    <state width="1323" height="132" key="GridCell.Tab.0.left" timestamp="1598154672601">
+    <state width="1323" height="169" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1598323911814" />
+    <state width="1323" height="169" key="GridCell.Tab.0.left" timestamp="1598323911814">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="132" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1598154672601" />
-    <state width="1323" height="132" key="GridCell.Tab.0.right" timestamp="1598154672601">
+    <state width="1323" height="169" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1598323911814" />
+    <state width="1323" height="169" key="GridCell.Tab.0.right" timestamp="1598323911814">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="132" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1598154672601" />
-    <state width="1323" height="180" key="GridCell.Tab.1.bottom" timestamp="1598112130474">
+    <state width="1323" height="169" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1598323911814" />
+    <state width="1323" height="169" key="GridCell.Tab.1.bottom" timestamp="1598323947968">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="180" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1598112130474" />
-    <state width="1323" height="180" key="GridCell.Tab.1.center" timestamp="1598112130474">
+    <state width="1323" height="169" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1598323947968" />
+    <state width="1323" height="169" key="GridCell.Tab.1.center" timestamp="1598323947968">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="180" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1598112130474" />
-    <state width="1323" height="180" key="GridCell.Tab.1.left" timestamp="1598112130474">
+    <state width="1323" height="169" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1598323947968" />
+    <state width="1323" height="169" key="GridCell.Tab.1.left" timestamp="1598323947960">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="180" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1598112130474" />
-    <state width="1323" height="180" key="GridCell.Tab.1.right" timestamp="1598112130474">
+    <state width="1323" height="169" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1598323947960" />
+    <state width="1323" height="169" key="GridCell.Tab.1.right" timestamp="1598323947968">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="180" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1598112130474" />
+    <state width="1323" height="169" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1598323947968" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1598110567009">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1598110567009" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1598251307740">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1598251307740" />
     <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1597729400973">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1597729400973" />
-    <state x="492" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598150777681">
+    <state x="492" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598321219943">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="492" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1598150777681" />
+    <state x="492" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1598321219943" />
     <state x="211" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597949422940">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="211" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597949422940" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>406</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="cursor.lastrowid" language="Python" />
@@ -370,7 +396,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/FindApp$main.coverage" NAME="main Coverage Results" MODIFIED="1598151379333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FindApp$main.coverage" NAME="main Coverage Results" MODIFIED="1598323911642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/FindApp$FindApp.coverage" NAME="FindApp Coverage Results" MODIFIED="1597384635875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/FindApp$database.coverage" NAME="database Coverage Results" MODIFIED="1597382183684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ShoppingCart-master" />
     <SUITE FILE_PATH="coverage/FindApp$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1597382191510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ShoppingCart-master" />

@@ -13,9 +13,6 @@
 
    {% for data in data %}
 
-
-
-
 <div class="container" style="margin-bottom: 3rem;">
    <div class="card text-center">
   <div class="card-header">
@@ -37,13 +34,12 @@
 
       <a href="{{ url_for('delete') }}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure For Delete?')"><i class="fas fa-delete"></i>Delete</a>
      <button  class="btn btn-outline-danger" type="button" data-toggle="modal" data-target="#exampleModal" >
-      <i class="fas fa-edit"></i> Edit</button>
+      <i class="fas fa-edit">  <a href="/View_Update_Entry/{{data.0}}" method="get">Edit </a> </i></button>
 
   </div>
 
 </div>
 </div>
-
 
 
 
@@ -66,27 +62,27 @@
 
 <form action="{{ url_for('update_Entry') }}" method="post" autocomplete="off">
 
-          <input type="hidden" value="{{data['foundlost_id'] }}" name="foundlost_id" >
+
 
           <div class="form-group">
               <div class="radio">
-                 <input type="radio" name="foundOrLost"  value="found" checked >
+                 <input type="radio" name="foundOrLost"  value="found" required>
                       <span> Found </span>
                 </div>
                      <div class="radio">
-                       <input type="radio" name="foundOrLost" value="lost"  >
+                       <input type="radio" name="foundOrLost" value="lost"  required>
                            <span> Lost</span>
                      </div>
              </div>
 
-          <input type="text" class="form-control" value="{{data.2}}" name="title" placeholder="Title*" required>
+          <input type="text" class="form-control" value="{{row.2}}" name="title" placeholder="Title*" required>
 
-          <input type="text" class="form-control" value="{{data['last_name'] }}" name="last_name" placeholder="last_name" required>
+          <input type="text" class="form-control" value="{{data.3}}" name="otherDetails" placeholder="Details" required>
 
-          <input type="text" class="form-control" value="{{data['father_name'] }}" name="father_name" placeholder="father_name" required>
+          <input type="text" class="form-control" value="{{data.4}}" name="address" placeholder="Address" required>
 
 
-          <input type="text" class="form-control" value="{{data['age'] }}" name="age" placeholder="age" required>
+          <input type="text" class="form-control" value="{{data.5}}" name="whenLostOrFound" placeholder="When" required>
 
 
 <button type="submit" class="btn btn-primary" value="Save">Save changes</button>
@@ -107,18 +103,8 @@
 
 
 
+           {% endfor  %}
 
-
-
-
-                {% endfor  %}
-
-
-
-
-
-  </tbody>
-</table>
 
 </form>
 </div>

@@ -17,8 +17,8 @@ app.secret_key = 'sECRET###!!#%$%#'
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = '127.0.0.1'
 app.config['MYSQL_USER'] = 'root'
-#app.config['MYSQL_PASSWORD'] = '1234'
-app.config['MYSQL_PASSWORD'] = 'yaKhudaKhair'
+app.config['MYSQL_PASSWORD'] = '1234'
+#app.config['MYSQL_PASSWORD'] = 'yaKhudaKhair'
 app.config['MYSQL_DB'] = 'found'
 from werkzeug.utils import secure_filename
 
@@ -130,12 +130,8 @@ def convertToBinaryData(filename):
     with open(filename, 'rb') as file:
         binaryData = file.read()
     return binaryData
-'''  
-@app.route('/uploads/<filename>')
-def send_file(filename):
-    return send_from_directory(UPLOAD_FOLDER, filename)
-'''
-# http://localhost:5000/pythonlogin/ - this will be the login page, we need to use both GET and POST requests
+
+
 @app.route('/users/Join', methods=['GET', 'POST'])
 def Join():
     # Output message if something goes wrong...
@@ -256,15 +252,13 @@ def search():
 
 @app.route('/foundlost/ShowEntry', methods=['GET', 'POST'])
 def ShowEntry():
+    user_id=session['user_id']
     cur = mysql.connection.cursor()
-    cur.execute("select * from foundlost where user_id = %s", (session['user_id'],))
+    cur.execute("select * from foundlost where user_id = %s",[user_id])
     data = cur.fetchall()
     return render_template('ShowEntry.html',data=data)
-    # User is not loggedin redirect to login page
-    return redirect(url_for('home'))
 
-
-
+#update user data
 @app.route('/users/update', methods=['POST', 'GET'])
 def update():
     # Check if "username", "password" and "email" POST requests exist (user submitted form)
@@ -298,7 +292,7 @@ def update():
     return redirect(url_for('profile'))
 
 
-
+#delete user
 @app.route('/users/delete')
 def delete():
     if 'loggedin' in session:
@@ -308,6 +302,8 @@ def delete():
         mysql.connection.commit()
         return redirect(url_for('register'))
 
+
+#view button on main page data
 @app.route('/view/<foundlost_id>' , methods=['POST', 'GET'])
 def view(foundlost_id):
 
@@ -403,12 +399,12 @@ def view(foundlost_id):
     comments_data = cursor.fetchall()
     return  render_template ('view.html',data=data,comments_data=comments_data,msg=msg,Aready_claimed_or_on_product=Aready_claimed_or_on_product)
 '''
-@app.route('/View_Update_Entry/<foundlost_id>' , methods=['get'])
+@app.route('/View_Update_Entry/<foundlost_id>' , methods=['get','post'])
 def View_Update_Entry(foundlost_id):
     cursor = mysql.connection.cursor()
     cursor.execute(f'SELECT * FROM foundlost WHERE foundlost_id = {foundlost_id}')
     data = cursor.fetchone()
-    return redirect(url_for('ShowEntry'))
+    return redirect(url_for('ShowEntry',data=data))
 
 
 @app.route('/users/update_Entry', methods=['POST', 'GET'])
